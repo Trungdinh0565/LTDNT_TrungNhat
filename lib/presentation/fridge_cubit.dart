@@ -3,6 +3,7 @@ import '../domain/meal_entity.dart';
 import '../domain/meal_usecase/getfavorite.dart';
 import '../domain/meal_usecase/savefavorite.dart';
 import '../domain/meal_usecase/search.dart';
+import 'package:flutter/foundation.dart';
 
 enum FridgeStatus { initial, loading, success, empty, error }
 
@@ -69,15 +70,23 @@ class FridgeCubit extends Cubit<FridgeState> {
     }
   }
 
-  Future<bool> saveFavorite(MealEntity meal) async {
-    try {
-      await _saveFavorite(meal);
-      if (_showingFavorites) await showFavorites();
-      return true;
-    } catch (_) {
-      return false;
+  
+Future<bool> saveFavorite(MealEntity meal) async {
+  try {
+    await _saveFavorite(meal);
+
+    if (_showingFavorites) {
+      await showFavorites();
     }
+
+    return true;
+  } catch (e, stackTrace) {
+  debugPrint('LOI LUU MON YEU THICH: $e');
+  debugPrint('STACK TRACE: $stackTrace');
+  return false;
   }
+}
+
 
   Future<void> retry() => _showingFavorites ? showFavorites() : search(_lastQuery);
 }

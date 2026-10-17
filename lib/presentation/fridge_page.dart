@@ -74,6 +74,27 @@ class _FridgePageState extends State<FridgePage> {
                               ? const Icon(Icons.fastfood)
                               : Image.network(meal.imageUrl, width: 56, height: 56, fit: BoxFit.cover,
                                   errorBuilder: (_, _, _) => const Icon(Icons.fastfood)),
+                          onTap: () {
+    showDialog(
+      context: context,
+      builder: (dialogContext) => AlertDialog(
+        title: Text(meal.name),
+        content: SingleChildScrollView(
+          child: Text(
+            meal.instructions.isEmpty
+                ? 'Chưa có công thức cho món này.'
+                : meal.instructions,
+          ),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(dialogContext),
+            child: const Text('Đóng'),
+          ),
+        ],
+      ),
+    );
+  },
                           title: Text(meal.name),
                           subtitle: Text(meal.from.isEmpty ? 'Không rõ xuất xứ' : meal.from),
                           trailing: state.showingFavorites ? null : IconButton(
