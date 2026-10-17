@@ -42,11 +42,6 @@ class _FridgePageState extends State<FridgePage> {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            const SizedBox(height: 8),
-            const Text(
-              'Phiên bản hiện tại tìm món theo tên (TheMealDB).',
-            ),
-            const SizedBox(height: 12),
 
             // Nhap ten mon an
             TextField(
