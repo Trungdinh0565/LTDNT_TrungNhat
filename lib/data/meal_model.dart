@@ -7,7 +7,6 @@ class MealModel extends MealEntity {
     required super.imageUrl,
     required super.instructions,
     required super.from,
-    super.isFavorite,
   });
 
   factory MealModel.fromJson(Map<String, dynamic> json) => MealModel(
@@ -17,12 +16,4 @@ class MealModel extends MealEntity {
         instructions: json['strInstructions'] ?? '',
         from: json['strArea'] ?? '',
       );
-
-  Map<String, dynamic> toJson() => {
-        'idMeal': id,
-        'strMeal': name,
-        'strMealThumb': imageUrl,
-        'strInstructions': instructions,
-        'strArea': from,
-      };
 }
