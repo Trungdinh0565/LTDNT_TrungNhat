@@ -1,27 +1,31 @@
-
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'injection_container.dart';
+import 'presentation/fridge_cubit.dart';
 import 'presentation/fridge_page.dart';
 
-void main() async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await configureDependencies() //tu them vo;
-  runApp(const MyApp());
+  await configureDependencies();
+  runApp(const CookTimeApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class CookTimeApp extends StatelessWidget {
+  const CookTimeApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Cooking Time',
+      title: 'CookTime',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.orange,
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.orange),
         useMaterial3: true,
       ),
-      debugShowCheckedModeBanner: false,
-      home: const FridgePage(),
+      home: BlocProvider(
+        create: (_) => sl<FridgeCubit>(),
+        child: const FridgePage(),
+      ),
     );
   }
 }
