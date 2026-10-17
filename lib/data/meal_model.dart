@@ -10,23 +10,19 @@ class MealModel extends MealEntity {
     super.isFavorite,
   });
 
-  factory MealModel.fromJson(Map<String, dynamic> json) {
-    return MealModel(
-      id: json['idMeal'] ?? '',
-      name: json['strMeal'] ?? '',
-      imageUrl: json['strMealThumb'] ?? '',
-      instructions: json['strInstructions'] ?? '',
-      from: json['strArea'] ?? '',
-    );
-  }
+  factory MealModel.fromJson(Map<String, dynamic> json) => MealModel(
+        id: json['idMeal'] ?? '',
+        name: json['strMeal'] ?? '',
+        imageUrl: json['strMealThumb'] ?? '',
+        instructions: json['strInstructions'] ?? '',
+        from: json['strArea'] ?? '',
+      );
 
-  Map<String, dynamic> toJson() {
-    return {
-      'idMeal': id,
-      'strMeal': name,
-      'strMealThumb': imageUrl,
-      'strInstructions': instructions,
-      'strArea': from,
-    };
-  }
+  Map<String, dynamic> toJson() => {
+        'idMeal': id,
+        'strMeal': name,
+        'strMealThumb': imageUrl,
+        'strInstructions': instructions,
+        'strArea': from,
+      };
 }
