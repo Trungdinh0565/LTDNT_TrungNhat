@@ -50,7 +50,7 @@ class _FridgePageState extends State<FridgePage> {
                 context.read<FridgeCubit>().search(value);
               },
               decoration: const InputDecoration(
-                labelText: 'Tên món (ví dụ: chicken)',
+                labelText: 'Tìm kiếm món ăn...',
                 prefixIcon: Icon(Icons.search),
                 border: OutlineInputBorder(),
               ),
