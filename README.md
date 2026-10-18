@@ -1,3 +1,3 @@
-# BÁO CÁO TUẦN MÔN LẬP TRÌNH ĐA NỀN TẢNG - TUẦN 10 - CHỦ ĐỀ 4 
+# BÁO CÁO TUẦN MÔN LẬP TRÌNH ĐA NỀN TẢNG
 # NHÓM SV: ĐINH TIẾN TRUNG & LÊ VĂN NHẬT
 
