@@ -15,6 +15,6 @@ class SearchMeals {
             if (checkkeyword.length > 80) {
                 throw ArgumentError('Do dai khong hop le');
             }
-            return repository.search(checkkeyword);
+            return await repository.search(checkkeyword);
       }
 }
